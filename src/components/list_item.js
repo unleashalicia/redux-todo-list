@@ -1,26 +1,32 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {deleteItem} from '../actions';
+import {deleteItem, getItems} from '../actions';
 import {connect} from 'react-redux';
 
 class ListItem extends Component{
+    handleDelete(id){
+        console.log('I want to delete this: ', id);
+        this.props.deleteItem(id).then(()=>{this.props.getItems});
+    }
+
     render(){
 
         console.log("Props in ListItem");
 
-        handleDelete(id){
+        return (
+            <li className="list-group-item row">
+                <Link to={`/item/${this.props._id}`} >{this.props.title}</Link>
+                <button onClick={()=>{this.handleDelete(this.props._id).bind(this)}} className="btn btn-outline-danger float-right">DELETE</button>
+            </li>
+        )
 
-        }
-
-        return {
-            return (
-                <li className="list-group-item row">
-                    <Link to={`/item/${props._id}`} >{props.title}</Link>
-                    <button onClick={props.deleteItem(props._id)} className="btn btn-outline-danger float-right">DELETE</button>
-                </li>
-            )
-        }
     }
 }
 
-export default connect(null, {deleteItem})(ListItem);
+// function mapStateToProps(state){
+//     return {
+//         delete: state.todos.deleteItem
+//     }
+// }
+
+export default connect(null, {deleteItem, getItems})(ListItem);
