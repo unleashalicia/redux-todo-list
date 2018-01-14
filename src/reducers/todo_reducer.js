@@ -12,6 +12,9 @@ export default function(state = DEFAULT_STATE, action){
         case types.GET_SINGLE_ITEM:
             console.log('SINGLE ITEM: ', action);
             return {...state, single: action.payload.data.todo};
+        case types.DELETE_ITEM:
+            console.log('Delete item?');
+            return state;
         default:
             return state;
     }
