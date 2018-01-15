@@ -5,14 +5,13 @@ import {connect} from 'react-redux';
 
 class ListItem extends Component{
 
+    //this could be functional component.
+
     handleDelete(id){
-        console.log('I want to delete this: ', id);
         this.props.deleteItem(id).then(()=>{this.props.getItems()});
     }
 
     render(){
-
-        console.log("Test console");
 
         return (
             <li className="list-group-item row">
@@ -23,11 +22,5 @@ class ListItem extends Component{
 
     }
 }
-
-// function mapStateToProps(state){
-//     return {
-//         delete: state.todos.deleteItem
-//     }
-// }
 
 export default connect(null, {deleteItem, getItems})(ListItem);

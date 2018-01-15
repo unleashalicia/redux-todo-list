@@ -11,8 +11,6 @@ class ViewItem extends Component{
 
     render(){
 
-        console.log("View Item Props: ", this.props);
-
         if(!this.props.single){
             return <h1>Loading...</h1>
         }
