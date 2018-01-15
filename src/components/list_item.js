@@ -4,19 +4,20 @@ import {deleteItem, getItems} from '../actions';
 import {connect} from 'react-redux';
 
 class ListItem extends Component{
+
     handleDelete(id){
         console.log('I want to delete this: ', id);
-        this.props.deleteItem(id).then(()=>{this.props.getItems});
+        this.props.deleteItem(id).then(()=>{this.props.getItems()});
     }
 
     render(){
 
-        console.log("Props in ListItem");
+        console.log("Test console");
 
         return (
             <li className="list-group-item row">
                 <Link to={`/item/${this.props._id}`} >{this.props.title}</Link>
-                <button onClick={()=>{this.handleDelete(this.props._id).bind(this)}} className="btn btn-outline-danger float-right">DELETE</button>
+                <button onClick={()=>{this.handleDelete(this.props._id)}} className="btn btn-outline-danger float-right">DELETE</button>
             </li>
         )
 
