@@ -32,9 +32,18 @@ export function getSingleItem(id){
     }
 }
 
+export function deleteItem(id){
+    const request = axios.delete(BASE_URL + '/todos/' + id + API_KEY);
+
+    return {
+        type: types.DELETE_ITEM,
+        payload: request
+    }
+}
+
 /*
 
-axios.delete('http://api.reactprototypes.com/todos/[id number]?key=[your API key]
+~~axios.delete('http://api.reactprototypes.com/todos/[id number]?key=[your API key]
 
 axios.put('http://api.reactprototypes.com/todos/[id number]?key=[your API key]: toggle completeness.
 
