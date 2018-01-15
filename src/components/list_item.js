@@ -14,7 +14,7 @@ class ListItem extends Component{
     render(){
 
         return (
-            <li className="list-group-item row">
+            <li className="list-group-item">
                 <Link to={`/item/${this.props._id}`} >{this.props.title}</Link>
                 <button onClick={()=>{this.handleDelete(this.props._id)}} className="btn btn-outline-danger float-right">DELETE</button>
             </li>
